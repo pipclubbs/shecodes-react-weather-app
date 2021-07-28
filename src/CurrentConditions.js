@@ -1,4 +1,5 @@
 import React from "react";
+import "./CurrentConditions.css";
 
 export default function CurrentConditions() {
   return (

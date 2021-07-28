@@ -1,0 +1,22 @@
+.Footer a {
+  text-decoration: none !important;
+}
+
+.Footer a:hover {
+  text-decoration: underline !important;
+}
+
+.Footer .linkedin {
+  bottom: 2px;
+  height: 16px;
+  position: relative;
+  width: 16px;
+}
+
+.Footer .footer {
+  bottom: 40px;
+  font-weight: 50;
+  margin: 0 0 20px 0;
+  position: relative;
+  text-align: center;
+}

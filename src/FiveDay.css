@@ -1,0 +1,17 @@
+.FiveDay .card {
+  background: transparent !important;
+  border: none !important;
+  font-family: "oxygen", sans-serif;
+  line-height: 15px;
+  margin: 0;
+}
+
+.FiveDay .card-body {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.FiveDay .weather-icon {
+  height: 50px;
+  width: 50px;
+}

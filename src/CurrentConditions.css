@@ -1,0 +1,15 @@
+.CurrentConditions .card {
+  background: transparent !important;
+  border: none !important;
+  font-family: "oxygen", sans-serif;
+  line-height: 15px;
+  margin: 0;
+}
+
+.CurrentConditions .card-body {
+  padding: 20px 0;
+}
+
+.CurrentConditions .current-cond {
+  font-size: 15px;
+}

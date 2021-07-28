@@ -1,0 +1,20 @@
+.SearchForm a {
+  text-decoration: none !important;
+}
+
+.SearchForm a:hover {
+  text-decoration: underline !important;
+}
+
+.SearchForm .form-control {
+  margin-top: 20px;
+}
+
+.SearchForm .reset-current li {
+  display: inline;
+}
+
+.SearchForm ul.reset-current {
+  list-style: none;
+  text-align: right;
+}

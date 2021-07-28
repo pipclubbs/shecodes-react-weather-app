@@ -1,7 +1,9 @@
 import React from "react";
+import "./Footer.css";
 
 export default function Footer() {
   return (
+    <div className="Footer">
       <div className="footer d-flex gap-2 justify-content-center">
       <span className="footer-text">
         <a
@@ -18,6 +20,6 @@ export default function Footer() {
           className="linkedin"
         />
       </a>
-    </div>
+    </div></div>
   );
 }

@@ -1,8 +1,13 @@
+:root {
+  --main-text-color: #1d2d50;
+  --font-family: "Oxygen", sans-serif;
+}
+
 h1,
 h2,
 span {
-  color: #1d2d50;
-  font-family: "Oxygen", sans-serif;
+  color: var(--main-text-color);
+  font-family: var(--font-family);
 }
 
 h1 {
@@ -18,34 +23,6 @@ h2 {
   text-align: right;
 }
 
-ul.reset-current {
-  list-style: none;
-  text-align: right;
-}
-
-a {
-  text-decoration: none !important;
-}
-
-a:hover {
-  text-decoration: underline !important;
-}
-
-.card {
-  background: transparent !important;
-  border: none !important;
-  font-family: "oxygen", sans-serif;
-  line-height: 15px;
-  margin: 0;
-}
-
-.celsiusFarenheit {
-  bottom: 20px;
-  font-size: 20px;
-  position: relative;
-  right: 12px;
-}
-
 .container {
   background-image: linear-gradient(to top, #5eaaa8 0%, #a3d2ca 100%);
   border-radius: 15px;
@@ -55,76 +32,21 @@ a:hover {
   padding: 25px;
 }
 
-.current-cond {
-  font-size: 15px;
-}
-
-.current-conditions div {
+.App .current-conditions div {
   text-align: left;
 }
 
-.current-conditions.row {
+.App .current-conditions.row {
   margin-left: 0px;
 }
 
-.currentDayAndTime {
-  font-weight: 400;
-  margin-bottom: 0;
-  opacity: 30%;
-  text-align: center;
-}
-
-.five-day-forecast .card-body {
+.App .five-day-forecast {
   padding-bottom: 5px;
   padding-top: 5px;
 }
 
-.five-day-forecast.col-12 {
+.App .five-day-forecast.col-12 {
   bottom: -26px;
   position: relative;
   text-align: right;
-}
-
-.footer {
-  bottom: 40px;
-  font-weight: 50;
-  margin: 0 0 20px 0;
-  position: relative;
-  text-align: center;
-}
-
-.form-control {
-  margin-top: 20px;
-}
-
-.inactive {
-  color: #1d2d50;
-  pointer-events: none;
-}
-
-.linkedin {
-  bottom: 2px;
-  height: 16px;
-  position: relative;
-  width: 16px;
-}
-
-.main-temperature {
-  font-size: 45px;
-  text-align: center;
-}
-
-.reset-current li {
-  display: inline;
-}
-
-.weather-description {
-  font-size: 15px;
-  margin: 0 0 15px 0;
-  text-align: center;
-}
-
-.weather-icon {
-  height: 50px;
-  width: 50px;
 }

@@ -1,0 +1,42 @@
+.SearchedCity a {
+  text-decoration: none !important;
+}
+
+.SearchedCity a:hover {
+  text-decoration: underline !important;
+}
+
+.SearchedCity .currentDayAndTime {
+  font-weight: 400;
+  margin-bottom: 0;
+  opacity: 30%;
+  text-align: center;
+}
+
+.SearchedCity .weather-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.SearchedCity .weather-description {
+  font-size: 15px;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+.SearchedCity .main-temperature {
+  font-size: 45px;
+  text-align: center;
+}
+
+.SearchedCity .celsiusFarenheit {
+  bottom: 20px;
+  font-size: 20px;
+  position: relative;
+  right: 12px;
+}
+
+.SearchedCity .inactive {
+  color: var(--main-text-color);
+  pointer-events: none;
+}
