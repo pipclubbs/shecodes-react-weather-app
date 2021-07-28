@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function FiveDay() {
-  return (
+    return (
     <div className="FiveDay">
       <div className="row">
         <div className="col-12">
