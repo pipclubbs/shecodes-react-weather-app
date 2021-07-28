@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SearchedCity from "./SearchedCity";
+import CurrentConditions from "./CurrentConditions";
+import SearchForm from "./SearchForm";
+import FiveDay from "./FiveDay";
+import Footer from "./Footer";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container shadow p-3 mb-5 bg-white">
+        <div className="row">
+          <div className="col-6">
+            <SearchedCity />
+            <div className="row shadow p-3 mb-5 rounded current-conditions">
+              <CurrentConditions />
+            </div>
+          </div>
+
+          <div className="col-6">
+            <SearchForm />
+            <div className="col-12 shadow p-3 mb-5 rounded five-day-forecast">
+              <div className="row">
+                <div className="col-12">
+                  <h2>Five-day forecast</h2>
+                </div>
+              </div>
+              <FiveDay />
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
-
-export default App;
