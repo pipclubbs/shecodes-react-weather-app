@@ -23,8 +23,12 @@ ul.reset-current {
   text-align: right;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 a:hover {
-  text-decoration: none;
+  text-decoration: underline !important;
 }
 
 .card {
