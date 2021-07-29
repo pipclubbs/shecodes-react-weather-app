@@ -3,67 +3,73 @@ import axios from "axios";
 import "./SearchedCity.css";
 
 export default function SearchedCity() {
-const [ready, setReady] = useState(false);
-const [temperature, setTemperature] = useState(null);
+  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState({});
 
-function handleResponse(response) {
-  console.log(response.data.main);
-    setTemperature(Math.round(response.data.main.temp));
+  function handleResponse(response) {
+    setWeatherData({
+      temperature: response.data.main.temp,
+      city: response.data.name,
+      icon: response.data.weather[0].icon,
+      description: response.data.weather[0].description,
+    });
     setReady(true);
-}
+  }
 
-if (ready) {
-  return (
-    <div className="SearchedCity">
-      <div className="col-12 city">
-        <h1 id="searched-city">London</h1>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <h2 className="currentDayAndTime" id="current-day-and-time">
-            Thursday 17:05
-          </h2>
+  if (ready) {
+    let weatherIcon = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`;
+    return (
+      <div className="SearchedCity">
+        <div className="col-12 city">
+          <h1 id="searched-city">{weatherData.city}</h1>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-12 main-temperature">
-          <img
-            src="images/sunny.png"
-            className="weather-icon"
-            alt=""
-            id="current-weather-icon"
-          />
-          <span className="main-temperature">
-            <span className="main-temp celsius-farenheit" id="main-temp">
-              {temperature} {""}
+        <div className="row">
+          <div className="col-12">
+            <h2 className="currentDayAndTime" id="current-day-and-time">
+              Thursday 17:05
+            </h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 main-temperature">
+            <img
+              src={weatherIcon}
+              className="weather-icon"
+              alt={weatherData.description}
+              id="current-weather-icon"
+            />
+            <span className="main-temperature">
+              <span className="main-temp celsius-farenheit" id="main-temp">
+                {Math.round(weatherData.temperature)} {""}
+              </span>
+              <span className="celsiusFarenheit">
+                <a href="/" className="celsius inactive" id="celsius">
+                  {" "}
+                  ºC{" "}
+                </a>
+                {""} | {""}
+                <a href="/" className="farenheit" id="farenheit">
+                  ºF
+                </a>
+              </span>
             </span>
-            <span className="celsiusFarenheit">
-              <a href="/" className="celsius inactive" id="celsius">
-                {" "}
-                ºC{" "}
-              </a>
-             {""} | {""}
-              <a href="/" className="farenheit" id="farenheit">
-                ºF
-              </a>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 weather-description">
+            <span className="weather-description" id="weather-description">
+              {weatherData.description}
             </span>
-          </span>
+          </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-12 weather-description">
-          <span className="weather-description" id="weather-description">
-            Sunny
-          </span>
-        </div>
-      </div>
-    </div>
-  );} else {
+    );
+  } else {
     const apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
-    let city = "new york";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`; 
+    let searchedCity = "london";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
-return "Loading...";
+    return "Loading...";
   }
 }
