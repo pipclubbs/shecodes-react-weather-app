@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./CurrentConditions.css";
 
-export default function CurrentConditions() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function CurrentConditions(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
+      ready: true,
       feelsLike: response.data.main.feels_like,
       minTemp: response.data.main.temp_min,
       maxTemp: response.data.main.temp_max,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="CurrentConditions">
         <div className="col-12 conditions-text">
@@ -92,8 +91,8 @@ export default function CurrentConditions() {
     );
   } else {
     const apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
-    let searchedCity = "london";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${apiKey}&units=metric`;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";

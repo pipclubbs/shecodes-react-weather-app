@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./SearchedCity.css";
 
-export default function SearchedCity() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function SearchedCity(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     let weatherIcon = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`;
     return (
       <div className="SearchedCity">
@@ -57,7 +56,10 @@ export default function SearchedCity() {
         </div>
         <div className="row">
           <div className="col-12 weather-description">
-            <span className="weather-description" id="weather-description">
+            <span
+              className="weather-description text-capitalize"
+              id="weather-description"
+            >
               {weatherData.description}
             </span>
           </div>
@@ -66,8 +68,8 @@ export default function SearchedCity() {
     );
   } else {
     const apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
-    let searchedCity = "london";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&appid=${apiKey}&units=metric`;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";

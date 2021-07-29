@@ -11,9 +11,9 @@ export default function App() {
       <div className="container shadow p-3 mb-5 bg-white">
         <div className="row">
           <div className="col-6">
-            <SearchedCity />
+            <SearchedCity defaultCity="Paris" />
             <div className="row shadow p-3 mb-5 rounded current-conditions">
-              <CurrentConditions />
+              <CurrentConditions defaultCity="Paris" />
             </div>
           </div>
 
@@ -25,7 +25,7 @@ export default function App() {
                   <h2>Five-day forecast</h2>
                 </div>
               </div>
-              <FiveDay />
+              <FiveDay defaultCity="Paris" />
             </div>
           </div>
         </div>

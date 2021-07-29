@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./FiveDay.css";
 
-export default function FiveDay() {
-  let [ready, setReady] = useState(false);
-  let [weatherData, setWeatherData] = useState({});
+export default function FiveDay(props) {
+  let [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
+      ready: true,
+
       dayOneIcon: response.data.list[1].weather[0].icon,
       dayOneTemp: response.data.list[1].main.temp,
       dayOneDescription: response.data.list[1].weather[0].description,
@@ -29,10 +29,9 @@ export default function FiveDay() {
       dayFiveTemp: response.data.list[5].main.temp,
       dayFiveDescription: response.data.list[5].weather[0].description,
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     let iconOne = `http://openweathermap.org/img/wn/${weatherData.dayOneIcon}@2x.png`;
     let iconTwo = `http://openweathermap.org/img/wn/${weatherData.dayTwoIcon}@2x.png`;
     let iconThree = `http://openweathermap.org/img/wn/${weatherData.dayThreeIcon}@2x.png`;
@@ -129,8 +128,8 @@ export default function FiveDay() {
     );
   } else {
     let apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
-    let city = "london";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
