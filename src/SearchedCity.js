@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./SearchedCity.css";
 
 export default function SearchedCity() {
+const [ready, setReady] = useState(false);
+const [temperature, setTemperature] = useState(null);
+
+function handleResponse(response) {
+  console.log(response.data.main);
+    setTemperature(Math.round(response.data.main.temp));
+    setReady(true);
+}
+
+if (ready) {
   return (
     <div className="SearchedCity">
       <div className="col-12 city">
@@ -24,7 +35,7 @@ export default function SearchedCity() {
           />
           <span className="main-temperature">
             <span className="main-temp celsius-farenheit" id="main-temp">
-              20 {""}
+              {temperature} {""}
             </span>
             <span className="celsiusFarenheit">
               <a href="/" className="celsius inactive" id="celsius">
@@ -47,5 +58,12 @@ export default function SearchedCity() {
         </div>
       </div>
     </div>
-  );
+  );} else {
+    const apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
+    let city = "new york";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`; 
+    axios.get(apiUrl).then(handleResponse);
+
+return "Loading...";
+  }
 }

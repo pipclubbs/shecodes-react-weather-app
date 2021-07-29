@@ -2,6 +2,7 @@ import React from "react";
 import "./CurrentConditions.css";
 
 export default function CurrentConditions() {
+
   return (
     <div className="CurrentConditions">
       <div className="col-12 conditions-text">

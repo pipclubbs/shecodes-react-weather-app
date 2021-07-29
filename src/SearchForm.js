@@ -11,7 +11,8 @@ export default function SearchForm() {
               type="text"
               className="form-control"
               id="city-search"
-              placeholder="Search..."
+              placeholder="Enter a city..."
+              autoFocus="on"
             />
             <ul className="reset-current">
               <li>
