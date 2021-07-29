@@ -6,7 +6,7 @@ import FiveDay from "./FiveDay";
 import Footer from "./Footer";
 
 export default function App() {
-  let defaultCity = "London";
+  let defaultCity = "Christchurch";
 
   return (
     <div className="App">
