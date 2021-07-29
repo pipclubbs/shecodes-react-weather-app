@@ -6,14 +6,16 @@ import FiveDay from "./FiveDay";
 import Footer from "./Footer";
 
 export default function App() {
+  let defaultCity = "London";
+
   return (
     <div className="App">
       <div className="container shadow p-3 mb-5 bg-white">
         <div className="row">
           <div className="col-6">
-            <SearchedCity defaultCity="Paris" />
+            <SearchedCity defaultCity={defaultCity} />
             <div className="row shadow p-3 mb-5 rounded current-conditions">
-              <CurrentConditions defaultCity="Paris" />
+              <CurrentConditions defaultCity={defaultCity} />
             </div>
           </div>
 
@@ -25,7 +27,7 @@ export default function App() {
                   <h2>Five-day forecast</h2>
                 </div>
               </div>
-              <FiveDay defaultCity="Paris" />
+              <FiveDay defaultCity={defaultCity} />
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ export default function CurrentConditions(props) {
             <div className="card-body">
               <i className="fas fa-temperature-high"></i>
               <span className="current-cond">
-                High {""}
+                {""} High {""}
                 <span className="high-temp celsius-farenheit" id="high-temp">
                   {Math.round(weatherData.maxTemp)}°C
                 </span>
@@ -51,7 +51,7 @@ export default function CurrentConditions(props) {
             <div className="card-body">
               <i className="fas fa-temperature-low"></i>
               <span className="current-cond">
-                Low {""}
+                {""} Low {""}
                 <span className="low-temp celsius-farenheit" id="low-temp">
                   {Math.round(weatherData.minTemp)}°C
                 </span>
@@ -65,7 +65,7 @@ export default function CurrentConditions(props) {
             <div className="card-body">
               <i className="fas fa-water"></i>
               <span className="current-cond">
-                Humidity {""}
+                {""} Humidity {""}
                 <span className="humidity" id="humidity">
                   {weatherData.humidity}%
                 </span>
@@ -79,7 +79,7 @@ export default function CurrentConditions(props) {
             <div className="card-body">
               <i className="fas fa-wind"></i>
               <span className="current-cond">
-                Wind {""}
+                {""} Wind {""}
                 <span className="wind-speed metric-imperial" id="wind-speed">
                   {weatherData.wind}km/h
                 </span>
