@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./FiveDay.css";
+import DayOne from "./DayOne";
+import DayTwo from "./DayTwo";
+import DayThree from "./DayThree";
+import DayFour from "./DayFour";
+import DayFive from "./DayFive";
 
 export default function FiveDay(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
@@ -44,9 +49,7 @@ export default function FiveDay(props) {
           <div className="col-12">
             <div className="card">
               <div className="card-body">
-                <span className="five-day" id="dayOneDay">
-                  {weatherData.dayOne}
-                </span>
+                <DayOne />
                 <img
                   src={iconOne}
                   className="weather-icon"
@@ -60,9 +63,7 @@ export default function FiveDay(props) {
             </div>
             <div className="card">
               <div className="card-body">
-                <span className="five-day" id="dayTwoDay">
-                  {weatherData.dayTwo}
-                </span>
+                <DayTwo />
                 <img
                   src={iconTwo}
                   className="weather-icon"
@@ -76,9 +77,7 @@ export default function FiveDay(props) {
             </div>
             <div className="card">
               <div className="card-body">
-                <span className="five-day" id="dayThreeDay">
-                  {weatherData.dayThree}
-                </span>
+                <DayThree />
                 <img
                   src={iconThree}
                   className="weather-icon"
@@ -92,9 +91,7 @@ export default function FiveDay(props) {
             </div>
             <div className="card">
               <div className="card-body">
-                <span className="five-day" id="dayFourDay">
-                  {weatherData.dayFour}
-                </span>
+                <DayFour />
                 <img
                   src={iconFour}
                   className="weather-icon"
@@ -108,9 +105,7 @@ export default function FiveDay(props) {
             </div>
             <div className="card">
               <div className="card-body">
-                <span className="five-day" id="dayFiveDay">
-                  {weatherData.dayFive}
-                </span>
+                <DayFive />
                 <img
                   src={iconFive}
                   className="weather-icon"
@@ -129,7 +124,7 @@ export default function FiveDay(props) {
   } else {
     let apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
 
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";

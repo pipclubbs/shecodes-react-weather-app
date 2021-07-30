@@ -50,3 +50,24 @@ h2 {
   position: relative;
   text-align: right;
 }
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.form-control {
+  margin-top: 20px;
+}
+
+.reset-current li {
+  display: inline;
+}
+
+ul.reset-current {
+  list-style: none;
+  text-align: right;
+}

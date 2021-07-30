@@ -92,7 +92,7 @@ export default function CurrentConditions(props) {
   } else {
     const apiKey = "a4e6c35b5c3b1332cec44f1b012a008c";
 
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
