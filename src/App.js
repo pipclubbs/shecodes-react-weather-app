@@ -23,6 +23,7 @@ export default function App() {
         <div className="row">
           <div className="col-6">
             <SearchedCity city={city} />
+
             <div className="row shadow p-3 mb-5 rounded current-conditions">
               <CurrentConditions city={city} />
             </div>
@@ -31,7 +32,7 @@ export default function App() {
           <div className="col-6">
             <div className="SearchForm">
               <div className="col-12">
-                <form onSubmit={handleSubmit}>
+                <form onEnter={handleSubmit}>
                   <div className="form-group">
                     <input
                       type="text"
